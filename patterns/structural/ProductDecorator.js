@@ -1,60 +1,69 @@
 // Base Decorator
 class ProductDecorator {
-    constructor(product) {
-        this.product = product;
-    }
+  constructor(product) {
+    this.product = product;
+  }
 
-    getPrice() {
-        return this.product.getPrice();
-    }
+  getPrice() {
+    return this.product.getPrice();
+  }
 
-    getDescription() {
-        return this.product.getDescription();
-    }
+  getDescription() {
+    return this.product.getDescription();
+  }
 }
 
 // Concrete Decorator for Gift Wrapping
 class GiftWrapDecorator extends ProductDecorator {
-    constructor(product) {
-        super(product);
-    }
+  constructor(product) {
+    super(product);
+  }
 
-    getPrice() {
-        // TODO: Return the product's original price + a $5 gift wrap fee.
-    }
+  getPrice() {
+    return this.product.getPrice() + 5;
+    // TODO: Return the product's original price + a $5 gift wrap fee.
+  }
 
-    getDescription() {
-        // TODO: Return the product's original description + ", gift wrapped".
-    }
+  getDescription() {
+    return this.product.getDescription() + ", gift wrapped";
+    // TODO: Return the product's original description + ", gift wrapped".
+  }
 }
 
-// Concrete Decorator for Extended Warranty
+// Concrete Decorator for Extended warranty
 class ExtendedWarrantyDecorator extends ProductDecorator {
-    constructor(product) {
-        super(product);
-    }
+  constructor(product) {
+    super(product);
+  }
 
-    getPrice() {
-        // TODO: Return the product's original price + a $20 warranty fee.
-    }
+  getPrice() {
+    return this.product.getPrice() + 20;
+    // TODO: Return the product's original price + a $20 warranty fee.
+  }
 
-    getDescription() {
-        // TODO: Return the product's original description + ", with extended warranty".
-    }
+  getDescription() {
+    return this.product.getDescription() + ", with extended warranty";
+    // TODO: Return the product's original description + ", with extended warranty".
+  }
 }
 
 // We need a base Product class with the same interface to decorate it
 class BaseProduct {
-    constructor(name, price) {
-        this._name = name;
-        this._price = price;
-    }
-    getPrice() {
-        return this._price;
-    }
-    getDescription() {
-        return this._name;
-    }
+  constructor(name, price) {
+    this._name = name;
+    this._price = price;
+  }
+  getPrice() {
+    return this._price;
+  }
+  getDescription() {
+    return this._name;
+  }
 }
 
-export { ProductDecorator, GiftWrapDecorator, ExtendedWarrantyDecorator, BaseProduct };
+export {
+  ProductDecorator,
+  GiftWrapDecorator,
+  ExtendedWarrantyDecorator,
+  BaseProduct,
+};
